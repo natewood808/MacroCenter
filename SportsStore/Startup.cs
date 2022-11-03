@@ -16,6 +16,8 @@ namespace SportsStore
 {
     public class Startup
     {
+        // This property and constructor loads the configuration settings in appsettings.json and 
+        // makes it available through the Configuration property.
         IConfigurationRoot Configuration;
         public Startup(IWebHostEnvironment env)
         {
@@ -30,8 +32,16 @@ namespace SportsStore
         {
             //services.AddTransient<IProductRepository, FakeProductRepository>(); // This was used for test data before we had a database
 
+            // This line adds sets up the services provided by EF Core for the database context class.
+            // We also configure the database with the UseSqlServer method and specified a connection string,
+            // located in the Configuration property we made in the constructor.
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            
+            // Whenever a component (i.e. ProductController) needs an instance of IProductRepository, MVC provides
+            // the class EFProductRepository which implements the interface.
             services.AddTransient<IProductRepository, EFProductRepository>();
+
+            // Sets up "shared objects" used in MVC applications
             services.AddMvc(options => options.EnableEndpointRouting = false);
         }
 
