@@ -53,7 +53,15 @@ namespace SportsStore
             app.UseStaticFiles();
             app.UseMvc(routes =>
             {
-                routes.MapRoute(name: "default", template: "{controller=Product}/{action=List}/{id?}");
+                // Place this route over the default one since the routing system considers routes
+                // in the order they are listed. So top routes take precedence over lower ones.
+                routes.MapRoute(
+                    name: "pagination",
+                    template: "Products/Page{page}",
+                    defaults: new { Controller = "Product", action = "List" });
+                routes.MapRoute(
+                    name: "default", 
+                    template: "{controller=Product}/{action=List}/{id?}");
             });
         }
     }
