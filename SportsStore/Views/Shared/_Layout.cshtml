@@ -3,11 +3,24 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    @* asp-href-include is a built in tag helper which generates additional link elements
+        for all the files it finds in the path passed into the value *@
+    <link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.min.css" />
     <title>SportsStore</title>
 </head>
 <body>
-    <div>
-        @RenderBody()
+    <nav class="navbar navbar-inverse bg-info">
+        <a class="navbar-brand text-white" href="#">SPORTS STORE</a>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col col-md-3">
+                Put something useful here later
+            </div>
+            <div class="col col-md-9">
+                @RenderBody()
+            </div>
+        </div>
     </div>
 </body>
 </html>
