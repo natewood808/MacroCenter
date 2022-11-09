@@ -1,8 +1,8 @@
 ﻿@* @model IEnumerable<Product> View expects a sequence of Product objects *@
 @model ProductsListViewModel
-@foreach (var p in Model.Products) 
+@foreach (var p in Model.Products)
 {
-    @Html.Partial("ProductSummary", p)
+    @await Html.PartialAsync("ProductSummary", p) // Use PartialAsync rather than Partial method since the synchronous, Partial method, may cause deadlocks in the app.
 }
 
 <div page-model="@Model.PagingInfo" 
