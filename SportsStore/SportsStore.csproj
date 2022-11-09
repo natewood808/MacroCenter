@@ -21,6 +21,7 @@
 		<!-- End of packages for Entity Framework Core -->
 		<!-- Added this line to configure app to read database connection strings -->
 		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.2" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
 		
 	</ItemGroup>
 	<ItemGroup>

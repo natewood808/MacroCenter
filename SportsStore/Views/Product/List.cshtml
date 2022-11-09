@@ -2,17 +2,7 @@
 @model ProductsListViewModel
 @foreach (var p in Model.Products) 
 {
-    <div class="card m-3 rounded">
-        <div class="card-block m-2">
-            <h3>
-                <strong>@p.Name</strong>
-                <span class="float-right bg-success text-white rounded m-2 p-1">
-                    @p.Price.ToString("c")
-                </span>
-                <span class="lead">@p.Description</span>
-            </h3>
-        </div>
-    </div>
+    @Html.Partial("ProductSummary", p)
 }
 
 <div page-model="@Model.PagingInfo" 
