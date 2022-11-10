@@ -1,0 +1,13 @@
+How the workflow of MVC works in my head:
+
+	1) Send request for a URL
+	2) MVC maps request to specific route
+	3) Controller instance created to handle request
+	4) Appropriate controller action method is called
+	5) If necessary, pass model/viewmodel data to the view
+	6) Render the view to the user
+
+32. We use LibMan to manage client-side libraries. Client-side libraries contains content sent to the client such as JavaScript files, CSS stylesheets, or images. We specify these libraries in the generated libman.json file. We generate this file by selecting the Manage Client-Side Libraries... from the Project menu.
+
+33. Filtering the Product List by Category:
+We added a property, CurrentCategory, to the ProductsListViewModel class. We set this new property in the List action method on the ProductController class. The List action method now takes in a "string category" parameter. We also added a LINQ Where enhancement to the ProductsListViewModel.Prodducts property to filter the Products from the repostiory to only ones that match the category provided.

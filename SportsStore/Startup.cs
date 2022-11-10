@@ -32,9 +32,9 @@ namespace SportsStore
         {
             //services.AddTransient<IProductRepository, FakeProductRepository>(); // This was used for test data before we had a database
 
-            // This line adds sets up the services provided by EF Core for the database context class.
+            // This line sets up the services provided by EF Core for the database context class.
             // We also configure the database with the UseSqlServer method and specified a connection string,
-            // located in the Configuration property we made in the constructor.
+            // this connection string is located in the Configuration property we made in the constructor.
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             
             // Whenever a component (i.e. ProductController) needs an instance of IProductRepository, MVC provides
@@ -53,15 +53,38 @@ namespace SportsStore
             app.UseStaticFiles();
             app.UseMvc(routes =>
             {
-                // Place this route over the default one since the routing system considers routes
+                // Place routes over the default one since the routing system considers routes
                 // in the order they are listed. So top routes take precedence over lower ones.
+
+                // The routes below follow the given formats:
+                // Product/List/Soccer/Page2
                 routes.MapRoute(
-                    name: "pagination",
-                    template: "Products/Page{page}",
-                    defaults: new { Controller = "Product", action = "List" });
+                    name: null,
+                    template: "{category}/Page{page:int}",
+                    defaults: new { controller = "Product", action = "List" }
+                );
+                // Product/List/Page2
                 routes.MapRoute(
-                    name: "default", 
-                    template: "{controller=Product}/{action=List}/{id?}");
+                    name: null,
+                    template: "Page{page:int}",
+                    defaults: new { controller = "Product", action = "List" }
+                );
+                // Product/List/Soccer
+                routes.MapRoute(
+                    name: null,
+                    template: "{category}",
+                    defaults: new { controller = "Product", action = "List" }
+                );
+                // Product/List/
+                routes.MapRoute(
+                    name: null, 
+                    template: "",
+                    defaults: new { controller = "Product", action = "List" }
+                );
+                routes.MapRoute(
+                    name: null,
+                    template: "{controller}/{action}/{id?}"
+                );
             });
         }
     }
