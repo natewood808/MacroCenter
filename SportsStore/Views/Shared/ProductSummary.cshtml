@@ -1,4 +1,7 @@
-﻿@*This is a partial view that helps reduce the duplication of the same markup across multiple Razor views, like a template*@
+﻿@*  This is a partial view that helps reduce the duplication of the same markup across multiple Razor views, like a template.
+    These should only contain HTML and Razor directives, and they get their model data from the parent view.
+    Accessing data directly in a partial view breaks the separation of concerns that is MVC. Data retrieval and
+    processing logic should not be in the same view file.*@
 @model Product
 <div class="card m-3 rounded">
     <div class="card-block m-2">

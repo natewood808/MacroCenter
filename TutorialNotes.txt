@@ -10,4 +10,17 @@ How the workflow of MVC works in my head:
 32. We use LibMan to manage client-side libraries. Client-side libraries contains content sent to the client such as JavaScript files, CSS stylesheets, or images. We specify these libraries in the generated libman.json file. We generate this file by selecting the Manage Client-Side Libraries... from the Project menu.
 
 33. Filtering the Product List by Category:
-We added a property, CurrentCategory, to the ProductsListViewModel class. We set this new property in the List action method on the ProductController class. The List action method now takes in a "string category" parameter. We also added a LINQ Where enhancement to the ProductsListViewModel.Prodducts property to filter the Products from the repostiory to only ones that match the category provided.
+We added a property, CurrentCategory, to the ProductsListViewModel class. We set this new property in the List action method on the ProductController class. The List action method now takes in a "string category" parameter. We also added a LINQ Where enhancement to the ProductsListViewModel.Products property in the List action method in the ProductController.cs file to filter the Products from the repostiory to only ones that match the category specified in the request.
+
+34. Refining the URL Scheme:
+We added new routes to the Startup.cs file to make more composable URLs (e.g. /?category=Soccer to /Soccer).
+The ASP.NET Core routing system is used by MVC to handle incoming requests/URLs, but it also generates outgoing URLs that conform to the URL scheme, these can be embedded into web pages. We use these outgoing URLs to make links to different pages to preserve the category filter, if any exist.
+We added to the PageLinkTagHelper.cs file to generate links on the page that retain the category filter.
+
+35. Building a Category Navigation Menu:
+View components are C# classes that provide a small amount of reusable logic with the ability to select and display Razor partial views.
+Another more specific definition would be, they are classes that provide application logic to suppport partial views or to inject small fragments of HTML or JSON data into a parent view.
+Partial views are only used to prevent duplicated markup across multiple views and only contain HTML and Razor directives, and the data they operate on is received from the parent view. Two problems arise that view components can solve:
+	1) Accessing the data we need directly from the partial view breaks the MVC pattern and results in data retrieval and processing logic being placed in a view file.
+	2) We could extend the view models to include the data we require, but this means we have to change every action method which makes it hard to isolate the functionality of action methods.
+View components solve these problems by providing partial views with the data they need, independently from the parent view and the action method that renders it.
