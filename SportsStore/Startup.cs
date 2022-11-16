@@ -42,7 +42,9 @@ namespace SportsStore
             services.AddTransient<IProductRepository, EFProductRepository>();
 
             // Sets up "shared objects" used in MVC applications
-            services.AddMvc(options => options.EnableEndpointRouting = false);
+            services.AddMvc(options => options.EnableEndpointRouting = false).AddNewtonsoftJson();
+            services.AddMemoryCache(); // Sets up the in-memory data store where we store session data
+            services.AddSession(); // Registers the services used to access session data
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +53,7 @@ namespace SportsStore
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             app.UseStaticFiles();
+            app.UseSession(); // Allows the session system to automatically associate requests with sessions when they arrive from the client
             app.UseMvc(routes =>
             {
                 // Place routes over the default one since the routing system considers routes

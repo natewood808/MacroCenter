@@ -21,6 +21,14 @@
 		<!-- End of packages for Entity Framework Core -->
 		<!-- Added this line to configure app to read database connection strings -->
 		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.2" />
+
+		<!-- These packages are used for enabling sessions/storing session state. We are going 
+			 to store our session state in memory, this is simple however session data is lost 
+			 whenever we close the application. -->
+		<PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.1.2" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.2" />
+		
+		<!-- I think this line was generated, no clue where it came from -->
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
 		
 	</ItemGroup>
