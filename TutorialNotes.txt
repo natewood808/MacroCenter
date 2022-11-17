@@ -46,3 +46,19 @@ Model Binding - in the CartController.cs class the action methods AddToCart(int 
 
 $Defining Session State Extension Methods
 ASP.NET Core's session state feature only stores int, string, and byte[] values so we have to serialize the Cart objectss into JSON. We do this by defining extension methods to the ISession interface in a new class we create in the Infrastructure folder called SessionExtensions.cs.
+
+Extension methods are static methods defined in a static class such as this:
+namespace ExtensionMethods
+{
+    public static class MyExtensions
+    {
+        public static int WordCount(this string str)
+        {
+            return str.Split(new char[] { ' ', '.', '?' },
+                             StringSplitOptions.RemoveEmptyEntries).Length;
+        }
+    }
+}
+This allows us to call the WordCount method like an instance method on "string" data types such as this:
+string s = "Hello Extension Methods";
+int i = s.WordCount();

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SportsStore.Infrastructure;
 using SportsStore.Models;
+using SportsStore.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,15 @@ namespace SportsStore.Controllers
             repository = repo;
         }
 
+        public ViewResult Index(string returnUrl)
+        {
+            return View(new CartIndexViewModel
+            {
+                Cart = GetCart(), // Get the Cart object from the session state
+                ReturnUrl = returnUrl
+            });
+        }
+
         public RedirectToActionResult AddToCart(int productId, string returnUrl)
         {
             Product product = repository.Products.FirstOrDefault(p => p.ProductID == productId);
@@ -26,7 +36,8 @@ namespace SportsStore.Controllers
                 cart.AddItem(product, 1);
                 SaveCart(cart);
             }
-            return RedirectToAction("Index", new { returnUrl });
+            // This tells the browser to request a URL that will call the Index action method on this controller.
+            return RedirectToAction("Index", new { returnUrl }); 
         }
 
         public RedirectToActionResult RemoveFromCart(int productId, string returnUrl)
