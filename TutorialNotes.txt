@@ -129,3 +129,6 @@ We add a separate controller (AdminController.cs) to manage our product catalog.
 
 53. Editing Products
 We want to display a page that will allow admins to change values for the properties of a product and add an action method that can process those changes when they are submitted. This will be an Edit action method decorated with a [HttpPost] attribute tag. We created the Edit.cshtml view which displays an edit screen for a given productId. This id is determined by what row of the Index.cshtml screen the user selects the Edit button from.
+
+54. Updating the Product Repository
+We added a SaveProduct method to the IProductRepository interface and subsequently to the EFProductRepository class as well since this class implements the interface. We added logic in this method to save the parameter Product obect to the database if there is no product that exists already for it and updates the existing product if it already exists in the database.
