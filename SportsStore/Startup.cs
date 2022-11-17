@@ -54,6 +54,10 @@ namespace SportsStore
             // is required. This service is required so we can access the current session in the SessionCart class.
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
+            // Tells MVC whenever an implementation of the IOrderRepository class is needed
+            // use an instance of the EFOrderRepository.
+            services.AddTransient<IOrderRepository, EFOrderRepository>();
+
             // Sets up "shared objects" used in MVC applications
             services.AddMvc(options => options.EnableEndpointRouting = false).AddNewtonsoftJson();
             services.AddMemoryCache(); // Sets up the in-memory data store where we store session data

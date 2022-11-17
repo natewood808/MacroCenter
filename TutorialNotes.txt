@@ -92,3 +92,16 @@ We now want to add a checkout and complete feature. We provide the support for g
 We added a new button to the Cart Index.cshtml view that makes a request for the Checkout action method on the new OrderController.cs controller class we made. This Checkout action method passes a new Order.cs model object to the view and returns a view called Checkout.cshtml to the user.
 
 The asp-for attribute on the input elements generates the type, id, name, and value attributes based on the specified model property.
+
+46. Implementing Order Processing
+We added an Orders property to the ApplicationDbContext.cs file in the models folder and ran EF commands in the Package Manager Console, Add-Migration Orders, which creates a new migration called Orders. Then we updated the database schema for the application with the Update-Database command.
+
+$Creating the Order Repository
+We use the same pattern that we used to implement the product repository by creating an interface called IOrderRepository to the Models folder. Then we created an implementation of this interface by creating the EFOrderRepository.cs class. We tell MVC to use an instance of this class whenever it needs an implementation of the IOrderRepository.
+
+47. Completing the Order Controller
+To complete the OrderController.cs class we added a constructor that receives the services needed to process an order, the Cart service and the Order repository service. Then we create a new action method that will handle the HTTP form POST request when a user clicks "Complete Order"
+
+We created another Checkout action method decorated with the [HttpPost] attribute tag, this indicates the action method only gets invoked whenever a POST request is sent (when the user submits the form, "Complete Order" button).
+
+We also added a div element with the asp-validation-summary tag helper to the top of the Checkout.cshtml view to display any Model Validation errors to the user.
