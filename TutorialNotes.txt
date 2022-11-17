@@ -24,3 +24,25 @@ Partial views are only used to prevent duplicated markup across multiple views a
 	1) Accessing the data we need directly from the partial view breaks the MVC pattern and results in data retrieval and processing logic being placed in a view file.
 	2) We could extend the view models to include the data we require, but this means we have to change every action method which makes it hard to isolate the functionality of action methods.
 View components solve these problems by providing partial views with the data they need, independently from the parent view and the action method that renders it.
+
+ViewBag is a dynamic object which you can define new properties by merely assigning values to them, making those values available in whatever view is subsequently rendered.
+
+37. Building the Shopping Cart:
+We first start by creating a Cart model class in the Models folder. Which holds information about the items in our cart and methods to manipulate the items in the cart.
+After that we create the "Add to Cart" button. To support this we create a UrlExtensions class that has an extension method called PathAndQuery(this HttpRequest request). This method generates a URL that the browser will be returned to after the cart has been updated. We add the namespace of this class to the _ViewImports file so we can use this extension method in the partial view, ProductSummary.cshtml.
+Next we modified the partial view, ProductSummary.cshtml, mainly to include a form element that has two inputs and a button that adds to cart. The two inputs are used to: 1) specify the ProductID from the view model and 2) specify the URL the browser should be returned to when the cart is updated.
+
+38. Enabling Sessions
+We added two packages to the csproj file that are used to implement sessions in our app. The packages are called Microsoft.AspNetCore.Mvc.NewtonsoftJson and Microsoft.Extensions.Caching.Memory. We also configured the Startup class with three methods in ConfigureServices(): .AddNewtonsoftJson(), .AddMemoryCache(), .AddSession. We also added one method to the Configure() method: app.UseSession();
+
+39. Implementing the Cart Controller
+We created a CartController.cs class to handle requests for AddToCart and RemoveFromCart actions. These actions redirect the user to a specified returnUrl.
+
+We use ASP.NET session state feature to store and retrieve Cart objects, which is the purpose of GetCart and SaveCart methods.
+
+The middleware we registered in the Startup class in task 38 uses cookies or URL rewriting to associate multiple requests from a user together to form a single browsing session. A related feature is session state, which associates data with a session.
+
+Model Binding - in the CartController.cs class the action methods AddToCart(int productId, stringreturnUrl) and RemoveFromCart(int productId, string returnUrl) have parameter names that match the input elemnts in the HTML form on the ProductSummary.cshtml partial view. This allows MVC to associate incoming form POST variables with those parameters, eliminating the need to process the form.
+
+$Defining Session State Extension Methods
+ASP.NET Core's session state feature only stores int, string, and byte[] values so we have to serialize the Cart objectss into JSON. We do this by defining extension methods to the ISession interface in a new class we create in the Infrastructure folder called SessionExtensions.cs.
