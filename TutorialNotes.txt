@@ -75,3 +75,20 @@ We want to replace how the persistence of the Cart class is handled, right now i
 We created the SessionCart.cs class which knows how to store itself in session data.
 
 We made two new contributions to the services collection in the Startup class and made use of the Cart service in the CartController class so the CartController isn't doing work maintaing session data.
+
+42. Removing Items from the Cart
+We just added a form with two inputs one matching the ProductID and one matching the returnUrl parameters in the RemoveFromCart action method in the CartController class. The form also had a button "Remove" that submits the POST request specified by the form. This was done in the Index.cshtml view for the CartController.
+
+43. Adding the Cart Summary Widget
+Our goal here is to add a widget for users to view their cart whenever without having to add an item first. This is done the same way we implemented the category navigation menu, with view components.
+We want to use an icon for the checkout option so we implement the Font Awesome package, an open source library of font symbols.
+We add this package to the libman.json file since this should be something the client will see on their machine, we use the GUI in VS to import the package this time in Add -> Client-Side Libary on the project.
+We created a new view component (CartSummaryViewComponent) which uses the Cart service we created and passes the Cart object to the Default.cshtml partial view in the Views/Shared/Components/CartSummary folder.
+
+44. Creating the Order.cs Model Class
+We now want to add a checkout and complete feature. We provide the support for gathering shipping details and add the application support to process those details. We add a model class (Order.cs) to hold all thiss shipping info.
+
+45. Adding the Checkout Process
+We added a new button to the Cart Index.cshtml view that makes a request for the Checkout action method on the new OrderController.cs controller class we made. This Checkout action method passes a new Order.cs model object to the view and returns a view called Checkout.cshtml to the user.
+
+The asp-for attribute on the input elements generates the type, id, name, and value attributes based on the specified model property.
