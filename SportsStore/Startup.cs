@@ -41,6 +41,19 @@ namespace SportsStore
             // the class EFProductRepository which implements the interface.
             services.AddTransient<IProductRepository, EFProductRepository>();
 
+            // This method specifies that the same object should be used to satisfy related requests for Cart instances.
+            // So any Cart required by components handling the same HTTP request will receive the same object.
+            // This lambda expression is invoked to satisfy Cart requests. We pass the collection of services
+            // that have been registere to the GetCart method, the result is that requests for the Cart service
+            // will be handled by creating SessionCart objects, which will serialize themselves as session data
+            // when they are modified.
+            services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
+
+            // This method specifies the same object should always be used. The service we created tells MVC
+            // to use HttpContextAccessor whenever implementations of the IHttpContextAccessor interface
+            // is required. This service is required so we can access the current session in the SessionCart class.
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             // Sets up "shared objects" used in MVC applications
             services.AddMvc(options => options.EnableEndpointRouting = false).AddNewtonsoftJson();
             services.AddMemoryCache(); // Sets up the in-memory data store where we store session data

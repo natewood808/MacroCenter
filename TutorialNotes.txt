@@ -62,3 +62,16 @@ namespace ExtensionMethods
 This allows us to call the WordCount method like an instance method on "string" data types such as this:
 string s = "Hello Extension Methods";
 int i = s.WordCount();
+
+40. Displaying the Contents of the Cart
+We created a new view model (CartIndexViewModel.cs) to pass two pieces of data to the view returned in our Index action method:
+	1) The Cart object
+	2) The URL that will display if the user clicks the Continue Shopping button
+The Index method passes this view model into the new view we created Index.cshtml in the Views/Cart folder.
+
+41. Creating a Storage-Aware Cart Class
+We want to replace how the persistence of the Cart class is handled, right now it is handled by the Cart controller. The problem with this is we will have to duplicate this code that obtains and stores Cart objects in any component that uses them. To refine this we will use the services feature to handle Cart objects.
+
+We created the SessionCart.cs class which knows how to store itself in session data.
+
+We made two new contributions to the services collection in the Startup class and made use of the Cart service in the CartController class so the CartController isn't doing work maintaing session data.
