@@ -7,6 +7,16 @@ How the workflow of MVC works in my head:
 	5) If necessary, pass model/viewmodel data to the view
 	6) Render the view to the user
 
+Task 32 Installing the Bootstrap Package
+Client-side packages is a package sent to the client that contain JS files, CSS files, and images.
+
+We handle managing these client-side libraries(packages) using LibMan.
+
+Right clicking on our project and select Manage Client-Side Libraries... generates a libman.json file which we can add libraries such as jQuery and Bootstrap to. Once this file is saved, VS wil download the appropriate files.
+
+asp-href-inlcude
+
+
 32. We use LibMan to manage client-side libraries. Client-side libraries contains content sent to the client such as JavaScript files, CSS stylesheets, or images. We specify these libraries in the generated libman.json file. We generate this file by selecting the Manage Client-Side Libraries... from the Project menu.
 
 33. Filtering the Product List by Category:
@@ -111,3 +121,8 @@ We are adding a simple admin tool that will allow the admin to mark orders as sh
 
 51. Adding the Actions and View
 We added two actions to the OrderController to handle logic for Orders that have or have not been shipped. The List action method returns a View that includes a list of orders that have not been shipped and the MarkShipped action method in invoked on POST requests that specify the orderID and marks it as shipped in the database.
+
+52. Adding Catalog Management
+The convention for managing more complex collections of items is to present the user with two types of pages: a list page and an edit page.
+We want our catalog management to be like a CRUD UI where we can create, read, update, and delete items in the collection.
+We add a separate controller (AdminController.cs) to manage our product catalog. This controller has an Index action method that calls the View method and passing the list of products in the database to the view. We created the Index.cshtml view in the View/Admin folder now we can see a list of all the products and we have buttons that map to future action methods Edit, Create, and Delete.
