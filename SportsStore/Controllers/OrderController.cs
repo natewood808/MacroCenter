@@ -19,6 +19,31 @@ namespace SportsStore.Controllers
         }
 
         /// <summary>
+        /// This action method returns the List.cshtml view  and
+        /// passes orders that have not been marked as shipped to the view
+        /// </summary>
+        /// <returns></returns>
+        public ViewResult List() => View(repository.Orders.Where(o => !o.Shipped));
+
+        /// <summary>
+        /// This action method finds the Order in the database that matches the 
+        /// current orderID and marks that order as shipped in the database.
+        /// </summary>
+        /// <param name="orderID"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public IActionResult MarkShipped(int orderID)
+        {
+            Order order = repository.Orders.FirstOrDefault(o => o.OrderID == orderID);
+            if (order != null)
+            {
+                order.Shipped = true;
+                repository.SaveOrder(order);
+            }
+            return RedirectToAction(nameof(List));
+        }
+
+        /// <summary>
         /// This method returns the Checkout.cshtml view and passes an Order object into the view.
         /// </summary>
         /// <returns></returns>

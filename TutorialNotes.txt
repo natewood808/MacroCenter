@@ -105,3 +105,9 @@ To complete the OrderController.cs class we added a constructor that receives th
 We created another Checkout action method decorated with the [HttpPost] attribute tag, this indicates the action method only gets invoked whenever a POST request is sent (when the user submits the form, "Complete Order" button).
 
 We also added a div element with the asp-validation-summary tag helper to the top of the Checkout.cshtml view to display any Model Validation errors to the user.
+
+50. Managing Orders
+We are adding a simple admin tool that will allow the admin to mark orders as shipped. We add a property to the Order.cs class called Shipped to track this information. This requires us to update the current version of the database as we are adding to a Model class that essentially represents a table in our database.
+
+51. Adding the Actions and View
+We added two actions to the OrderController to handle logic for Orders that have or have not been shipped. The List action method returns a View that includes a list of orders that have not been shipped and the MarkShipped action method in invoked on POST requests that specify the orderID and marks it as shipped in the database.

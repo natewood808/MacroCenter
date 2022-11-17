@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace SportsStore.Models
 {
     /// <summary>
-    /// I'm not 100% sure how this class works.
+    /// I'm not 100% sure how this class works. Getting there though.
     ///
     /// </summary>
     public class EFOrderRepository : IOrderRepository
@@ -23,7 +23,10 @@ namespace SportsStore.Models
         // in al the Order objects in the database context.
         public IEnumerable<Order> Orders => context.Orders.Include(o => o.Lines).ThenInclude(l => l.Product); 
 
-
+        /// <summary>
+        /// This is where the saving of Order objects happens.
+        /// </summary>
+        /// <param name="order"></param>
         public void SaveOrder(Order order)
         {
             context.AttachRange(order.Lines.Select(l => l.Product));

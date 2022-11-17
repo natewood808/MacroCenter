@@ -255,3 +255,6 @@ C:\Users\natew\source\repos\SportsStore\SportsStore\bin\Debug\netcoreapp3.1\Newt
 C:\Users\natew\source\repos\SportsStore\SportsStore\obj\Debug\netcoreapp3.1\Razor\Views\Cart\Index.cshtml.g.cs
 C:\Users\natew\source\repos\SportsStore\SportsStore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\CartSummary\Default.cshtml.g.cs
 C:\Users\natew\source\repos\SportsStore\SportsStore\obj\Debug\netcoreapp3.1\Razor\Views\Order\Checkout.cshtml.g.cs
+C:\Users\natew\source\repos\SportsStore\SportsStore\obj\Debug\netcoreapp3.1\Razor\Views\Order\Completed.cshtml.g.cs
+C:\Users\natew\source\repos\SportsStore\SportsStore\obj\Debug\netcoreapp3.1\Razor\Views\Order\List.cshtml.g.cs
+C:\Users\natew\source\repos\SportsStore\SportsStore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_AdminLayout.cshtml.g.cs
