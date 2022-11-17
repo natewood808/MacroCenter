@@ -28,7 +28,7 @@ namespace SportsStore.Components
         /// <summary>
         /// Whenever MVC needs an instance of NavigationMenuViewComponent it will go to the
         /// configuration in the Startup class to find a class that implements IProductRepository
-        /// to use instantiate this view component. This is the same dependency injection feature
+        /// to use to instantiate this view component. This is the same dependency injection feature
         /// we used in ProductController.cs. This is done so this view component doesn't need
         /// to know which repository implementation to use.
         /// </summary>

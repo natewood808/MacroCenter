@@ -6,11 +6,15 @@
     @* asp-href-include is a built in tag helper which generates additional link elements
         for all the files it finds in the path passed into the value *@
     <link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.min.css" />
+    <link rel="stylesheet" asp-href-include="lib/font-awesome/css/*.css" />
     <title>SportsStore</title>
 </head>
 <body>
-    <nav class="navbar navbar-inverse bg-info">
+    <nav class="navbar navbar-inverse bg-info justify-content-between">
         <a class="navbar-brand text-white" href="#">SPORTS STORE</a>
+        <div class="float-right">
+            @await Component.InvokeAsync("CartSummary") 
+        </div>
     </nav>
     <div class="container">
         <div class="row">
