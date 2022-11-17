@@ -126,3 +126,6 @@ We added two actions to the OrderController to handle logic for Orders that have
 The convention for managing more complex collections of items is to present the user with two types of pages: a list page and an edit page.
 We want our catalog management to be like a CRUD UI where we can create, read, update, and delete items in the collection.
 We add a separate controller (AdminController.cs) to manage our product catalog. This controller has an Index action method that calls the View method and passing the list of products in the database to the view. We created the Index.cshtml view in the View/Admin folder now we can see a list of all the products and we have buttons that map to future action methods Edit, Create, and Delete.
+
+53. Editing Products
+We want to display a page that will allow admins to change values for the properties of a product and add an action method that can process those changes when they are submitted. This will be an Edit action method decorated with a [HttpPost] attribute tag. We created the Edit.cshtml view which displays an edit screen for a given productId. This id is determined by what row of the Index.cshtml screen the user selects the Edit button from.
