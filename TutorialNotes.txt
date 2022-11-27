@@ -139,3 +139,8 @@ We added a POST Edit action method that handles saving the edited product to the
 56. Adding Model Validation for Product Model
 We decorated the Product Model properties with attribute tags like [Required(ErrorMessage = "Please enter a name")]
 so we can display these error messages to the user on each form element that violates the model validations.
+
+57. Enabling Client-Side Validation
+Currently data validation is applied when the admin submits data to the server, but we want to validate the data before sending it off to the server. To do this we add JavaScript libraries to the libman.json file to allow us to validate on the client-side (jquery-validate and jquery validation-unobstrusive). We added a few script tags to the _AdminLayout.cshtml view to load these libraries once the administration features are used (i.e. loading a view that inherits from the _AdminLayout.cshtml view).
+
+IMPORTANT: It is good to validate data entered by users at client-side, but do not authenticate in client-side, authentication should be done at server-side. Authentication on the client-side would involve sending valid credentials from the server to client to perform authentication against the username and password that the client entered.
