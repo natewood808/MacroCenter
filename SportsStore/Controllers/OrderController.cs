@@ -64,7 +64,7 @@ namespace SportsStore.Controllers
 
             // Check the ModelState, a property of the Model Binder system. This system also checks
             // the validation constraints we added to the Order.cs class, so if there are any errors,
-            // like shipping info not filled out, we will know by checking ModelStae.IsValid.
+            // like shipping info not filled out, we will know by checking ModelState.IsValid.
             if (ModelState.IsValid)
             {
                 order.Lines = cart.Lines.ToArray(); // Fill the order.Lines property with data from the cart.Lines property

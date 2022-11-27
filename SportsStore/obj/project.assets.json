@@ -8691,23 +8691,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\n01368202\\.nuget\\packages\\": {},
+    "C:\\Users\\natew\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\n01368202\\SportsStore\\SportsStore\\SportsStore.csproj",
+      "projectUniqueName": "C:\\Users\\natew\\source\\repos\\SportsStore\\SportsStore\\SportsStore.csproj",
       "projectName": "SportsStore",
-      "projectPath": "C:\\Users\\n01368202\\SportsStore\\SportsStore\\SportsStore.csproj",
-      "packagesPath": "C:\\Users\\n01368202\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\n01368202\\SportsStore\\SportsStore\\obj\\",
+      "projectPath": "C:\\Users\\natew\\source\\repos\\SportsStore\\SportsStore\\SportsStore.csproj",
+      "packagesPath": "C:\\Users\\natew\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\natew\\source\\repos\\SportsStore\\SportsStore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\n01368202\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\natew\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -8783,6 +8783,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[3.1.24, 3.1.24]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -8791,7 +8797,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

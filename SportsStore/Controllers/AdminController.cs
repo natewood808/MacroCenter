@@ -30,5 +30,24 @@ namespace SportsStore.Controllers
         /// <param name="productId"></param>
         /// <returns></returns>
         public ViewResult Edit(int productId) => View(repository.Products.FirstOrDefault(p => p.ProductID == productId));
+
+        [HttpPost]
+        public IActionResult Edit(Product product)
+        {
+            if (ModelState.IsValid)
+            {
+                repository.SaveProduct(product);
+                // This is a ASP.NET Core seession state feature. It is a key/value dictionary similar to the session
+                // data and view bag features we used previously. Temp Data persists until it is read, while session
+                // data persists until we explicitly remove it which is something we prefer NOT to do.
+                TempData["message"] = $"{product.Name} has been saved!";
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                // there is something wrong with the data values
+                return View(product);
+            }
+        }
     }
 }

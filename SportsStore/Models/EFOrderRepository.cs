@@ -20,7 +20,7 @@ namespace SportsStore.Models
 
         // This is an expression body definition for the Orders property. Basically
         // a get accessor which retrieves the Product info from the CartLine objects
-        // in al the Order objects in the database context.
+        // in all the Order objects in the database context.
         public IEnumerable<Order> Orders => context.Orders.Include(o => o.Lines).ThenInclude(l => l.Product); 
 
         /// <summary>

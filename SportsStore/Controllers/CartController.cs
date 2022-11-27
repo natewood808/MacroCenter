@@ -13,7 +13,9 @@ namespace SportsStore.Controllers
     /// Initially this class was concerned with how Cart objects were created and persisted.
     /// This was done by having methods that read and wrote data from the session, GetCart()
     /// and SaveCart(). Since implementing the Cart service these methods are obsolete and
-    /// focuses the CartController.cs class on its role in the application.
+    /// focuses the CartController.cs class on its role in the application, which is displaying
+    /// and updating the sessions's current cart rather than managing the session details. Now
+    /// the cart service handles session details.
     /// </summary>
     public class CartController : Controller
     {

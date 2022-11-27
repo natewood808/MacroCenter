@@ -26,7 +26,7 @@
                        It retrieves the orderID from the current Order object of this foreach loop through the
                        use of the input element.*@
                     <form asp-action="MarkShipped" method="post">
-                        <input type="hidden" name="orderId" value="o.OrderID" />
+                        <input type="hidden" name="orderId" value="@o.OrderID" />
                         <button type="submit" class="btn btn-sm btn-danger">Ship</button>
                     </form>
                 </td>

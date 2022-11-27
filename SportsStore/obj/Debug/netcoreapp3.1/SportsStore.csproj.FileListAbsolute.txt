@@ -344,3 +344,5 @@ C:\Users\n01368202\SportsStore\SportsStore\obj\Debug\netcoreapp3.1\Razor\Views\S
 C:\Users\n01368202\SportsStore\SportsStore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\ProductSummary.cshtml.g.cs
 C:\Users\n01368202\SportsStore\SportsStore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_AdminLayout.cshtml.g.cs
 C:\Users\n01368202\SportsStore\SportsStore\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Edit.cshtml.g.cs
+C:\Users\natew\source\repos\SportsStore\SportsStore\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Edit.cshtml.g.cs
+C:\Users\natew\source\repos\SportsStore\SportsStore\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Index.cshtml.g.cs

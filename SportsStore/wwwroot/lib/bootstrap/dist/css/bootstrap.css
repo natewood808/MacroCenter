@@ -6723,13 +6723,13 @@ button.bg-success:focus {
 }
 
 .bg-info {
-  background-color: #17a2b8 !important;
+    background-color: #201e1e !important;
 }
 
 a.bg-info:hover, a.bg-info:focus,
 button.bg-info:hover,
 button.bg-info:focus {
-  background-color: #117a8b !important;
+    background-color: #201e1e !important;
 }
 
 .bg-warning {
