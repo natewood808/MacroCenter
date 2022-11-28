@@ -49,5 +49,27 @@ namespace SportsStore.Controllers
                 return View(product);
             }
         }
+
+        /// <summary>
+        /// Provides a new Product object to the Edit.cshtml view so that the
+        /// fields are populated with empty values. Makes use of existing Edit
+        /// functionality to add new products to the database.
+        /// </summary>
+        /// <returns></returns>
+        public ViewResult Create() => View("Edit", new Product());
+
+        [HttpPost]
+        public IActionResult Delete(int productId)
+        {
+            Product deletedProduct = repository.DeleteProduct(productId);
+            if (deletedProduct != null)
+            {
+                // An interesting observation of this line is that we can use the same TempData["message"] to display
+                // a messsage whenever a product is deleted in the repository or updated successfully. Thanks to
+                // the shared layout of that is _AdminLayout.cshtml for implementing the message in TempData.
+                TempData["message"] = $"{deletedProduct.Name} was deleted";
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
