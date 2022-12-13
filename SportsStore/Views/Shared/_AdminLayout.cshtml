@@ -14,7 +14,7 @@
         }
     </style>
     @* These script elements use the tag helper to select the files from the libraries that
-       help us handle client-side validations. *@
+       help us handle client-side error validations. *@
     <script asp-src-include="lib/jquery/**/jquery.min.js"></script>
     <script asp-src-include="lib/jquery-validation/**/jquery.validate.min.js"></script>
     <script asp-src-include="lib/jquery-validation-unobtrusive/**/*.min.js"></script>
@@ -22,7 +22,10 @@
 <body>
     <div class="container">
         <div class="card">
-            <div class="card-header"><h4>@ViewBag.Title</h4></div>
+            <div class="card-header">
+                <h4>@ViewBag.Title</h4>
+                <a class="btn btn-sm btn-primary float-right" asp-action="Logout" asp-controller="Account">Log Out</a>
+            </div>
             <div class="card-body">
                 @* This is a message that is on the template layout to alert users of a 
                    successful edit of a record in the database. The message is set in 

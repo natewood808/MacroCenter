@@ -177,4 +177,11 @@ We are using the most basic authorization policy in that any authenticated user 
 63. Creating the Account Controller
 Created a view model, LoginModel.cs, to represent user login information. Next we create the AccountController.cs class which has the URLs: /Account/Login, /Account/Index, /Account/Create.
 
-not much explaining is done in the AccountController but what I can interpret is we have a few services that handle finding the user based on model data entered e.g. (AppUser user = await userManager.FindByEmailAsync(loginModel.Email)). And we have a signIn service that handles signing the user in and out based on the credentials. This controller will allow us to login/logout, create new users, edit existing users, and delete users.
+Not much explaining is done in the AccountController but what I can interpret is we have a few services that handle finding the user based on model data entered e.g. (AppUser user = await userManager.FindByEmailAsync(loginModel.Email)). And we have a signIn service that handles signing the user in and out based on the credentials. This controller will allow us to login/logout, create new users, edit existing users, and delete users.
+
+64. Creating Login View
+Created the Login view under the new folder Views/Account which has a form with an email and password field that sends post requests to the POST Login action method on the AccountController.
+
+Adding a logout button to the shared _AdminLayout.cshtml page so that we can logout of the authenticated user and go back to an unauthenticated state.
+
+65. Creating User Accounts
