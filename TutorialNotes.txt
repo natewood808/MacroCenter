@@ -175,3 +175,6 @@ Applying a Basic Authorization Policy
 We are using the most basic authorization policy in that any authenticated user is allowed access. The [Authorize] attribute tag is used to restrict access to action methods, and can be applied per action method or on the whole controller to restrict access for all action methods in that controller.
 
 63. Creating the Account Controller
+Created a view model, LoginModel.cs, to represent user login information. Next we create the AccountController.cs class which has the URLs: /Account/Login, /Account/Index, /Account/Create.
+
+not much explaining is done in the AccountController but what I can interpret is we have a few services that handle finding the user based on model data entered e.g. (AppUser user = await userManager.FindByEmailAsync(loginModel.Email)). And we have a signIn service that handles signing the user in and out based on the credentials. This controller will allow us to login/logout, create new users, edit existing users, and delete users.
