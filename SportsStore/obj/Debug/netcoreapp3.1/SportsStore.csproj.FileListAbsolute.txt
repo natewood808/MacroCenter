@@ -353,3 +353,4 @@ C:\Users\natew\source\repos\SportsStore\SportsStore\bin\Debug\netcoreapp3.1\Micr
 C:\Users\natew\source\repos\SportsStore\SportsStore\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\natew\source\repos\SportsStore\SportsStore\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\natew\source\repos\SportsStore\SportsStore\obj\Debug\netcoreapp3.1\Razor\Views\Account\Create.cshtml.g.cs
+C:\Users\natew\source\repos\SportsStore\SportsStore\obj\Debug\netcoreapp3.1\Razor\Views\Account\Index.cshtml.g.cs

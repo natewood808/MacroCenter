@@ -186,3 +186,6 @@ Adding a logout button to the shared _AdminLayout.cshtml page so that we can log
 
 65. Creating User Accounts
 We create a Create.cshtml page that has a form which allows us to input new user info and create necessary user data in the database with the AccountController's Create POST action method handling the database logic.
+
+66. Listing User Accounts
+Created the Index.cshtml page for the AccountController and it takes in a model of the type IEnumerable<AppUser> and displays a list of the databases currently stored user info. You can also Edit, Delete, and Create users from this screen.
