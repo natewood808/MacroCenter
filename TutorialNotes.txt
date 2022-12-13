@@ -185,3 +185,4 @@ Created the Login view under the new folder Views/Account which has a form with 
 Adding a logout button to the shared _AdminLayout.cshtml page so that we can logout of the authenticated user and go back to an unauthenticated state.
 
 65. Creating User Accounts
+We create a Create.cshtml page that has a form which allows us to input new user info and create necessary user data in the database with the AccountController's Create POST action method handling the database logic.
