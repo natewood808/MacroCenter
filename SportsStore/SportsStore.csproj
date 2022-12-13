@@ -28,6 +28,10 @@
 		<PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.1.2" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.2" />
 		
+		<!-- Installing this package to make use of the IdenityDbContext class, for storing
+		     user information in our current database. -->
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.2"/>
+		
 		<!-- I think this line was generated, no clue where it came from -->
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
 		

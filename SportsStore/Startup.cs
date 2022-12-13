@@ -11,6 +11,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace SportsStore
 {
@@ -58,6 +59,11 @@ namespace SportsStore
             // use an instance of the EFOrderRepository.
             services.AddTransient<IOrderRepository, EFOrderRepository>();
 
+            // This method sets up Identity services using built-in classes to represent users and roles.
+            services.AddIdentity<AppUser, IdentityRole<Guid>>()
+                    .AddEntityFrameworkStores<ApplicationDbContext>()
+                    .AddDefaultTokenProviders();
+
             // Sets up "shared objects" used in MVC applications
             services.AddMvc(options => options.EnableEndpointRouting = false).AddNewtonsoftJson();
             services.AddMemoryCache(); // Sets up the in-memory data store where we store session data
@@ -70,6 +76,7 @@ namespace SportsStore
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             app.UseStaticFiles();
+            app.UseAuthentication(); // Sets up the components to intercept requests and responses to implement the security policy
             app.UseSession(); // Allows the session system to automatically associate requests with sessions when they arrive from the client
             app.UseMvc(routes =>
             {

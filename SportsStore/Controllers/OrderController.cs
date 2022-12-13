@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SportsStore.Models;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,7 @@ namespace SportsStore.Controllers
         /// passes orders that have not been marked as shipped to the view
         /// </summary>
         /// <returns></returns>
+        [Authorize]
         public ViewResult List() => View(repository.Orders.Where(o => !o.Shipped));
 
         /// <summary>
@@ -32,6 +34,7 @@ namespace SportsStore.Controllers
         /// <param name="orderID"></param>
         /// <returns></returns>
         [HttpPost]
+        [Authorize]
         public IActionResult MarkShipped(int orderID)
         {
             Order order = repository.Orders.FirstOrDefault(o => o.OrderID == orderID);

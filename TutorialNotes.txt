@@ -150,3 +150,28 @@ We made use of the existing Edit functionalities and created a Create action met
 
 59. Deleting Products
 Added a Product DeleteProduct(int productID) method to the product repository interface and implementation class (EFProductRepository.cs) which gets the database context and finds the product matching the productID parameter and removes it from the database.
+
+60. Create Application User Class Inheriting IdentityUser Base Classs
+We need to create a class that will represent users in our application. This is the AppUser.cs model class that inherits from the IdentityUser base class. We are going to use the same database to store user information, some online tutorials for ASP.NET Core Identity system use a separate database.
+
+61. Modify ApplicationDbContext
+Instead of creating a separate IdentityDbContext we are going to use our existing ApplicationDbContext class, we change the inheritance of this class from DbContext to IdentityDbContext<AppUser, IdentityRole<Guid>, Guid>. We need to install a package in the project's config file (adding the package reference tag for Microsoft.AspNetCore.Identity.EntityFrameworkCore).
+
+Configuring the Application
+To configure the Identity system we add methods to the Startup class. In the ConfigureServices method we add the AddIdentity method to set up Identity services using built in classes to represent users and roles:
+
+services.AddIdentity<AppUser, IdentityRole<Guid>>()
+.AddEntityFrameworkStores<ApplicationDbContext>()
+.AddDefaultTokenProviders();
+
+We also add to the Configure method the UseAuthentication method to set up the components that intercept requests and responses to implement the security policy:
+
+app.UseAuthentication();
+
+62. Creating and Applying the Database Migration
+We created a migration called Identity using the command Add-Migration Identity and then ran the migration using Update-Database which created all the new Identity system tables.
+
+Applying a Basic Authorization Policy
+We are using the most basic authorization policy in that any authenticated user is allowed access. The [Authorize] attribute tag is used to restrict access to action methods, and can be applied per action method or on the whole controller to restrict access for all action methods in that controller.
+
+63. Creating the Account Controller
