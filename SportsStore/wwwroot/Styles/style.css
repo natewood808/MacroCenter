@@ -1,0 +1,22 @@
+﻿.bg-info {
+    background-color: #000000 !important;
+}
+
+.logo {
+    width: 100px;
+}
+
+.link {
+    background-color: white;
+    padding: 0.5em 1em 0.5em 1em;
+    margin-left: 1em;
+    color: #000000;
+    text-decoration: none;
+}
+
+.link:hover {
+    border: 1px solid #FFFFFF;
+    background-color: #111111;
+    color: #FFFFFF;
+    text-decoration: none;
+}
