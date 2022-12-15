@@ -10,6 +10,8 @@
                 <strong>@Model.Name</strong>
             </h3>
 
+            <img src="@(Model.ImageString != null ? Url.Content(Model.ImageString) : "#")" />
+
             <p class="card-text lead">
                 @Model.Description
             </p>

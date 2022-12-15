@@ -1,0 +1,71 @@
+﻿.bg-info {
+    background-color: #000000 !important;
+}
+
+.logo {
+    width: 100px;
+}
+
+.link {
+    background-color: white;
+    padding: 0.5em 1em 0.5em 1em;
+    margin-left: 1em;
+    color: #000000;
+    text-decoration: none;
+}
+
+.link:hover {
+    border: 1px solid #FFFFFF;
+    background-color: #111111;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.admin-container {
+    margin: 0 3rem;
+    margin-top: 3rem;
+}
+
+.card-header {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logout-button {
+    background-color: white;
+    color: black;
+    border: 0;
+    height: 28px;
+    font-size: 12px;
+}
+
+#logout-button:hover {
+    background-color: lightgray;
+}
+
+.admin_buttons{
+    background-color: black;
+    color: white;
+    border: 0;
+}
+
+.admin_buttons:hover {
+    background-color: #2e2e2e;
+}
+
+.admin_buttons:focus {
+    background-color: #2e2e2e;
+    border: 0;
+    box-shadow: none;
+}
+
+.reset_button {
+    background-color: #6c757d;
+}
+
+.reset_button:hover {
+    background-color: black;
+}

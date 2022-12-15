@@ -18,6 +18,7 @@
             <a class="link rounded" asp-controller="Product" asp-action="List">Products</a>
             <a class="link rounded" asp-controller="About" asp-action="Index">About</a>
             <a class="link rounded" asp-controller="Faq" asp-action="Index">FAQ</a>
+            <a class="link rounded" asp-controller="Policy" asp-action="Index">Policies</a>
             <a class="link rounded" asp-controller="Account" asp-action="Login">Login</a>
         </div>
 
@@ -30,4 +31,33 @@
         @RenderBody()
     </div>
 </body>
+
+<footer class="footer card-footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a asp-controller="About" asp-action="Index">About Us</a></li>
+                    <li><a asp-controller="Policy" asp-action="Index">Policies</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Get Help</h4>
+                <ul>
+                    <li><a asp-controller="Faq" asp-action="Index">FAQ</a></li>
+                    <li><a asp-controller="Order" asp-action="List">Shipping</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Online Shop</h4>
+                <ul>
+                    <li><a asp-action="List" asp-controller="Product" asp-route-category="Graphics Cards" asp-route-price="" asp-route-page="1">Graphics Cards</a></li>
+                    <li><a asp-action="List" asp-controller="Product" asp-route-category="Motherboards" asp-route-price="" asp-route-page="1">Motherboards</a></li>
+                    <li><a asp-action="List" asp-controller="Product" asp-route-category="Processors" asp-route-price="" asp-route-page="1">Processors</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
 </html>

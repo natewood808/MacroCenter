@@ -13,7 +13,7 @@
            helper that will add a validation error message to the specified property (Product.Nmae)
            if there are any validation problems. It will add the error message to the span element,
            then add the element to the input-validation-error class, which makes it easy to 
-            apply CSS styles to error message elements. *@
+           apply CSS styles to error message elements. *@
         <div><span asp-validation-for="Name" class="text-danger"></span></div> @* Handles displaying validation errors for specific form element. *@
         <input asp-for="Name" class="form-control" />
     </div>
@@ -33,7 +33,7 @@
         <input asp-for="Price" class="form-control" />
     </div>
     <div class="text-center">
-        <button class="btn btn-primary" type="submit">Save</button>
+        <button class="btn btn-primary admin_buttons" type="submit">Save</button>
         <a asp-action="Index" class="btn btn-default">Cancel</a>
     </div>
 </form>

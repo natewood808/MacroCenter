@@ -357,3 +357,6 @@ C:\Users\natew\source\repos\SportsStore\SportsStore\obj\Debug\netcoreapp3.1\Razo
 C:\Users\natew\source\repos\SportsStore\SportsStore\obj\Debug\netcoreapp3.1\Razor\Views\About\Index.cshtml.g.cs
 C:\Users\natew\source\repos\SportsStore\SportsStore\obj\Debug\netcoreapp3.1\Razor\Views\Faq\Index.cshtml.g.cs
 C:\Users\natew\source\repos\SportsStore\SportsStore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_InfoLayout.cshtml.g.cs
+C:\Users\natew\source\repos\SportsStore\SportsStore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\PriceMenu\Default.cshtml.g.cs
+C:\Users\natew\source\repos\SportsStore\SportsStore\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginLayout.cshtml.g.cs
+C:\Users\natew\source\repos\SportsStore\SportsStore\obj\Debug\netcoreapp3.1\Razor\Views\Policy\Index.cshtml.g.cs

@@ -20,3 +20,75 @@
     color: #FFFFFF;
     text-decoration: none;
 }
+
+.btn-info {
+    color: #fff;
+    background-color: #000000;
+    border-color: #17a2b8;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #000000;
+    border-color: #000000;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #343a40;
+    border-color: #000000;
+}
+
+.card-footer {
+    margin-top: 0.5em;
+    padding: 0.75rem 1.25rem;
+    background-color: #111111;
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.container {
+    max-width: 1170px;
+    margin: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul {
+    list-style: none;
+}
+
+.footer {
+    background-color: #000000;
+    padding: 70px 0;
+}
+
+.footer-col {
+    width: 25%;
+    padding: 15px;
+}
+
+.footer-col h4 {
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+}
+
+.footer-col ul li a {
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+}
+
+.footer-col ul li a:hover {
+    color: #ffffff;
+}

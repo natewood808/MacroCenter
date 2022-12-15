@@ -1,6 +1,6 @@
 ﻿@model LoginModel
 
-@{ 
+@{
     ViewBag.Title = "Create User Account";
     Layout = "_AdminLayout";
 }
@@ -23,9 +23,9 @@
 
     <div class="form-group">
         <div class="col-sm-offset-2">
-            <button type="submit" class="btn btn-primary">Create</button>
-            <button type="reset" class="btn btn-primary">Reset</button>
-            <a asp-action="Index" class="btn btn-primary">Cancel</a>
+            <button type="submit" class="btn btn-primary admin_buttons">Create</button>
+            <button type="reset" class="btn btn-primary admin_buttons reset_button">Reset</button>
+            <a asp-action="Index" class="btn btn-default">Cancel</a>
         </div>
     </div>
 </form>

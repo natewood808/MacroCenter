@@ -40,6 +40,5 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <None Include="wwwroot\Images\logo.png" />
-	  <None Include="wwwroot\Images\me.jpg" />
 	</ItemGroup>
 </Project>

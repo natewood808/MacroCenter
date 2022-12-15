@@ -4,6 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.min.css" />
+    <link rel="stylesheet" asp-href-include="Styles/admin-styles.css" />
     <title>@ViewBag.Title</title>
     @* Elements that use the asp-validation-for tag helper and have an error gets
        added to this class. *@
@@ -20,11 +21,11 @@
     <script asp-src-include="lib/jquery-validation-unobtrusive/**/*.min.js"></script>
 </head>
 <body>
-    <div class="container">
+    <div class="admin-container">
         <div class="card">
             <div class="card-header">
                 <h4>@ViewBag.Title</h4>
-                <a class="btn btn-sm btn-primary float-right" asp-action="Logout" asp-controller="Account">Log Out</a>
+                <a id="logout-button" class="btn btn-sm btn-primary float-right" asp-action="Logout" asp-controller="Account">Log Out</a>
             </div>
             <div class="card-body">
                 @* This is a message that is on the template layout to alert users of a 

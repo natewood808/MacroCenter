@@ -84,6 +84,7 @@ namespace SportsStore
                 // in the order they are listed. So top routes take precedence over lower ones.
 
                 // The routes below follow the given formats:
+                // Product/List/Soccer/Descending/Page2
                 // Product/List/Soccer/Page2
                 routes.MapRoute(
                     name: null,
@@ -111,6 +112,11 @@ namespace SportsStore
                 routes.MapRoute(
                     name: null,
                     template: "{controller}/{action}/{id?}"
+                );
+                routes.MapRoute(
+                    name: null,
+                    template: "{price}/{category}",
+                    defaults: new { controller = "Product", action = "List" }
                 );
             });
         }

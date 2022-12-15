@@ -18,21 +18,46 @@ namespace SportsStore.Controllers
         // .OrderBy(p => p.ProductID)       changing how the controller
         // .Skip((page - 1) * PageSize)     sent data to the view
         // .Take(PageSize));
-        public ViewResult List(string category, int page = 1)
-            => View(new ProductsListViewModel
+        public ViewResult List(string category, string price, int page = 1)
+        {
+            ProductsListViewModel viewModel = new ProductsListViewModel();
+
+            if (price != null && price.Equals("Descending"))
             {
-                Products = repository.Products
-                           .Where(p => category == null || p.Category == category)
-                           .OrderBy(p => p.ProductID)
-                           .Skip((page - 1) * PageSize)
-                           .Take(PageSize),
-                PagingInfo = new PagingInfo
-                {
-                    CurrentPage = page,
-                    ItemsPerPage = PageSize,
-                    TotalItems = category == null ? repository.Products.Count() : repository.Products.Where(x => x.Category == category).Count()
-                },
-                CurrentCategory = category
-            });
+                viewModel.Products = repository.Products
+                                     .Where(p => category == null || p.Category == category)
+                                     .OrderByDescending(p => p.Price)
+                                     .Skip((page - 1) * PageSize)
+                                     .Take(PageSize);
+            } 
+            else if (price != null && price.Equals("Ascending"))
+            {
+                viewModel.Products = repository.Products
+                                     .Where(p => category == null || p.Category == category)
+                                     .OrderBy(p => p.Price)
+                                     .Skip((page - 1) * PageSize)
+                                     .Take(PageSize);
+            } 
+            else
+            {
+                viewModel.Products = repository.Products
+                                     .Where(p => category == null || p.Category == category)
+                                     .OrderBy(p => p.ProductID)
+                                     .Skip((page - 1) * PageSize)
+                                     .Take(PageSize);
+            }
+
+            viewModel.PagingInfo = new PagingInfo
+            {
+                CurrentPage = page,
+                ItemsPerPage = PageSize,
+                TotalItems = category == null ? repository.Products.Count() : repository.Products.Where(x => x.Category == category).Count()
+            };
+
+            viewModel.CurrentCategory = category;
+            viewModel.CurrentPriceSort = price;
+            
+            return View(viewModel);
+        }
     }
 }

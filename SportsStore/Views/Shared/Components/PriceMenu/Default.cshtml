@@ -1,0 +1,13 @@
+﻿@* This is the view that is returned by the NavigationMenuViewComponent Invoke method.
+    View components' views are stored in the Shared/Components/"ViewComponentName"
+    The default view will be called Default.cshtml. *@
+
+<a class="btn btn-block m-2 @(ViewBag.SelectedPriceSort == "Ascending" ? "btn-primary" : "btn-outline-dark")"
+   asp-action="List"
+   asp-controller="Product"
+   asp-route-price="Ascending">Price: Low to High</a>
+
+<a class="btn btn-block m-2 @(ViewBag.SelectedPriceSort == "Descending" ? "btn-primary" : "btn-outline-dark")"
+   asp-action="List"
+   asp-controller="Product"
+   asp-route-price="Descending">Price: High to Low</a>

@@ -7,34 +7,67 @@
         for all the files it finds in the path passed into the value *@
     <link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.min.css" />
     <link rel="stylesheet" asp-href-include="lib/font-awesome/css/*.css" />
-    <link rel="stylesheet" asp-href-include="Styles/*.css" />
+    <link rel="stylesheet" asp-href-include="Styles/style.css" />
     <title>Macro Center: Electronics</title>
 </head>
-<body>
-    <nav class="navbar bg-info justify-content-between">
-        <a asp-controller="Product" asp-action="List"><img class="logo" src="@Url.Content("~/Images/logo.png")" /></a>
+<div class="main">
+    <body>
+        <nav class="navbar bg-info justify-content-between">
+            <a asp-controller="Product" asp-action="List"><img class="logo" src="@Url.Content("~/Images/logo.png")" /></a>
 
-        <div class="justify-content-center">
-            <a class="link rounded" asp-controller="Product" asp-action="List">Products</a>
-            <a class="link rounded" asp-controller="About" asp-action="Index">About</a>
-            <a class="link rounded" asp-controller="Faq" asp-action="Index">FAQ</a>
-            <a class="link rounded" asp-controller="Account" asp-action="Login">Login</a>
-        </div>
+            <div class="justify-content-center">
+                <a class="link rounded" asp-controller="Product" asp-action="List">Products</a>
+                <a class="link rounded" asp-controller="About" asp-action="Index">About</a>
+                <a class="link rounded" asp-controller="Faq" asp-action="Index">FAQ</a>
+                <a class="link rounded" asp-controller="Policy" asp-action="Index">Policies</a>
+                <a class="link rounded" asp-controller="Account" asp-action="Login">Login</a>
+            </div>
 
-        <div>
-            @await Component.InvokeAsync("CartSummary")
-        </div>
-    </nav>
-    <div class="container">
-        <div class="row">
-            <div class="col col-md-3">
-                @* This is how to use a view component *@
-                @await Component.InvokeAsync("NavigationMenu")
+            <div>
+                @await Component.InvokeAsync("CartSummary")
             </div>
-            <div class="col col-md-9">
-                @RenderBody()
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col col-md-3">
+                    @* This is how to use a view component *@
+                    @await Component.InvokeAsync("NavigationMenu")
+                    @await Component.InvokeAsync("PriceMenu")
+                </div>
+                <div class="col col-md-9">
+                    @RenderBody()
+                </div>
             </div>
         </div>
-    </div>
-</body>
+    </body>
+
+    <footer class="footer card-footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a asp-controller="About" asp-action="Index">About Us</a></li>
+                        <li><a asp-controller="Policy" asp-action="Index">Policies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Get Help</h4>
+                    <ul>
+                        <li><a asp-controller="Faq" asp-action="Index">FAQ</a></li>
+                        <li><a asp-controller="Order" asp-action="List">Shipping</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Online Shop</h4>
+                    <ul>
+                        <li><a asp-action="List" asp-controller="Product" asp-route-category="Graphics Cards" asp-route-price="" asp-route-page="1">Graphics Cards</a></li>
+                        <li><a asp-action="List" asp-controller="Product" asp-route-category="Motherboards" asp-route-price="" asp-route-page="1">Motherboards</a></li>
+                        <li><a asp-action="List" asp-controller="Product" asp-route-category="Processors" asp-route-price="" asp-route-page="1">Processors</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
 </html>
