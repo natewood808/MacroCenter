@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
+		
+		<!-- Start of packages used for installing Entity Framework Core -->
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.2" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.2" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.2" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.2">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+		</PackageReference>
+		<!-- End of packages for Entity Framework Core -->
+		<!-- Added this line to configure app to read database connection strings -->
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.2" />
+
+		<!-- These packages are used for enabling sessions/storing session state. We are going 
+			 to store our session state in memory, this is simple however session data is lost 
+			 whenever we close the application. -->
+		<PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.1.2" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.2" />
+		
+		<!-- Installing this package to make use of the IdenityDbContext class, for storing
+		     user information in our current database. -->
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.2" />
+		
+		<!-- I think this line was generated, no clue where it came from -->
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+		
+	</ItemGroup>
+	<ItemGroup>
+		<DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
+		
+		<!-- Added this line for database management tools -->
+		<DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.3" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Include="wwwroot\Images\logo.png" />
+	</ItemGroup>
+</Project>
